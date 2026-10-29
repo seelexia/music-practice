@@ -20,6 +20,18 @@
 - **愿望单** — 只填歌名即可登记想练的歌，之后逐步补全资料与素材
 - **实验性识谱** — 可配置 OpenAI 兼容的视觉模型 API，从曲谱图片识别音符；**准确度尚未通过验收，识别结果必须人工校对**（见 [识谱与导入](docs/08-recognition-and-external-import.md)）
 
+## 界面预览
+
+截图来自内置演示数据（公有领域曲目），非真实曲库。
+
+| 曲库总览 | 练习视图：简谱 + 实时音高 |
+| :---: | :---: |
+| ![曲库总览](docs/screenshots/library.png) | ![练习视图](docs/screenshots/practice.png) |
+
+| 五线谱渲染与歌词 | 愿望单 | 手机端练习 |
+| :---: | :---: | :---: |
+| ![五线谱](docs/screenshots/staff.png) | ![愿望单](docs/screenshots/wishlist.png) | ![手机端](docs/screenshots/mobile.png) |
+
 ## 技术栈
 
 | 层 | 技术 |
