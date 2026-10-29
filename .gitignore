@@ -1,0 +1,11 @@
+.tools/
+target/
+node_modules/
+dist/
+data/
+.run/
+test-results/
+*.log
+__pycache__/
+*.pyc
+.env

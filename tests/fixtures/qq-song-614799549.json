@@ -1,0 +1,41 @@
+{
+  "code": 0,
+  "data": [
+    {
+      "album": {
+        "id": 77695157,
+        "mid": "000eyy8U24wicN",
+        "name": "崩坏星穹铁道-昔涟 Ripples of Past Reverie",
+        "pmid": "000eyy8U24wicN_1",
+        "subtitle": "《崩坏：星穹铁道》昔涟动画短片中文单曲",
+        "time_public": "2025-11-06",
+        "title": "崩坏星穹铁道-昔涟 Ripples of Past Reverie"
+      },
+      "mid": "002rhFKO3EjKAg",
+      "title": "昔涟",
+      "name": "昔涟",
+      "singer": [
+        {
+          "id": 224,
+          "mid": "002raUWw3PXdkT",
+          "name": "张韶涵",
+          "pmid": "",
+          "title": "张韶涵",
+          "type": 1,
+          "uin": 0
+        },
+        {
+          "id": 980851,
+          "mid": "001uz8tl04tdL8",
+          "name": "HOYO-MiX",
+          "pmid": "",
+          "title": "HOYO-MiX",
+          "type": 3,
+          "uin": 0
+        }
+      ],
+      "subtitle": "《崩坏：星穹铁道》昔涟动画短片中文单曲",
+      "id": 614799549
+    }
+  ]
+}

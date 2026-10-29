@@ -1,0 +1,87 @@
+{
+  "format": "shengjian.score",
+  "measures": [
+    {
+      "id": "m1",
+      "notes": [
+        {
+          "degree": 1,
+          "duration": [
+            1,
+            1
+          ],
+          "id": "n1",
+          "lyric": "清\n微",
+          "octave": 0,
+          "phraseId": "p1"
+        },
+        {
+          "degree": 2,
+          "duration": [
+            1,
+            2
+          ],
+          "id": "n2",
+          "lyric": "风\n雨",
+          "octave": 0,
+          "phraseId": "p1"
+        },
+        {
+          "degree": 3,
+          "duration": [
+            1,
+            2
+          ],
+          "id": "n3",
+          "lyric": "来\n停",
+          "octave": 0,
+          "phraseId": "p1"
+        },
+        {
+          "degree": 5,
+          "duration": [
+            2,
+            1
+          ],
+          "id": "n4",
+          "lyric": "了\n了",
+          "octave": 0,
+          "phraseId": "p1"
+        }
+      ],
+      "row": 1,
+      "sourceId": "page-1"
+    }
+  ],
+  "metadata": {
+    "bpm": 96,
+    "key": "C",
+    "timeSignature": [
+      4,
+      4
+    ],
+    "title": "练习示例"
+  },
+  "phrases": [
+    {
+      "id": "p1",
+      "label": "清风来了"
+    }
+  ],
+  "provenance": {
+    "producer": "填写工具或人工名称",
+    "lyricRows": {
+      "first": "第一遍歌词",
+      "second": "第二遍歌词",
+      "kind": "alternateVerse"
+    }
+  },
+  "sources": [
+    {
+      "id": "page-1",
+      "name": "score.png"
+    }
+  ],
+  "version": 1,
+  "warnings": []
+}

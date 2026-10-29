@@ -1,0 +1,298 @@
+{
+  "$defs": {
+    "fraction": {
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+        {
+          "maximum": 1000000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "maximum": 1000000,
+          "minimum": 1,
+          "type": "integer"
+        }
+      ],
+      "type": "array"
+    },
+    "id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "type": "string"
+    },
+    "note": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "degree": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "degree"
+            ]
+          },
+          "then": {
+            "properties": {
+              "uncertain": {
+                "const": true
+              }
+            },
+            "required": [
+              "uncertain"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "accidental": {
+          "maximum": 2,
+          "minimum": -2,
+          "type": "integer"
+        },
+        "annotations": {},
+        "degree": {
+          "maximum": 7,
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "duration": {
+          "$ref": "#/$defs/fraction"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "lyric": {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        "octave": {
+          "maximum": 4,
+          "minimum": -4,
+          "type": "integer"
+        },
+        "phraseId": {
+          "$ref": "#/$defs/id"
+        },
+        "rhythm": {
+          "$ref": "#/$defs/rhythm"
+        },
+        "tieFrom": {
+          "$ref": "#/$defs/id"
+        },
+        "uncertain": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "degree",
+        "duration",
+        "lyric",
+        "phraseId"
+      ],
+      "type": "object"
+    },
+    "rhythm": {
+      "additionalProperties": false,
+      "properties": {
+        "dots": {
+          "maximum": 3,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "extensions": {
+          "maximum": 64,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "tuplet": {
+          "items": {
+            "maximum": 16,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "underlines": {
+          "maximum": 5,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "结构校验以外，服务器还检查引用、总音数、UTF-8字节数、音高范围、精确节奏、延音线和版本。单声部、线性顺序、全局调号/拍号/速度；不能据小节总拍数修改印刷事实。",
+  "properties": {
+    "format": {
+      "const": "shengjian.score"
+    },
+    "measures": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "annotations": {},
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "notes": {
+            "items": {
+              "$ref": "#/$defs/note"
+            },
+            "maxItems": 20000,
+            "minItems": 1,
+            "type": "array"
+          },
+          "pickup": {
+            "type": "boolean"
+          },
+          "row": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "sourceId": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "required": [
+          "id",
+          "sourceId",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "bpm": {
+          "maximum": 300,
+          "minimum": 20,
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "key": {
+          "maxLength": 16,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timeSignature": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "maximum": 32,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "enum": [
+                1,
+                2,
+                4,
+                8,
+                16
+              ]
+            }
+          ],
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "title": {
+          "maxLength": 1000,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "phrases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "label": {
+            "maxLength": 2000,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "type": "object"
+      },
+      "maxItems": 4000,
+      "type": "array"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "maxLength": 1000,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "version": {
+      "const": 1
+    },
+    "warnings": {
+      "items": {
+        "maxLength": 2000,
+        "type": "string"
+      },
+      "maxItems": 256,
+      "type": "array"
+    }
+  },
+  "required": [
+    "format",
+    "version",
+    "metadata",
+    "sources",
+    "phrases",
+    "measures"
+  ],
+  "title": "声笺外部转谱包 v1",
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+export type Note = {id:string;beat:number;duration:number;midi:number|null;degree?:number|null;durationFraction?:[number,number];octave?:number;lyric:string;phraseId:string;sourcePage?:string;measureId?:string;uncertain?:boolean};
+export type Phrase = {id:string;label:string};
+export type Measure = {id:string;startBeat:number;duration:number;expectedBeats?:number;sourcePage?:string;row?:number;pickup?:boolean};
+export type Score = {bpm:number;key:string;timeSignature:[number,number];notes:Note[];phrases:Phrase[];measures?:Measure[];status:string};
+export type Asset = {id:string;name:string;kind:'score'|'audio'|'video'|'cover'|'recording';mime:string;size:number;url:string;createdAt:string;take?:unknown};
+export type Song = {id:string;revision:number;title:string;artist:string;album:string;composer:string;lyricist:string;description:string;lyricsText?:string;tags:string[];links:{bilibili:string;qq:string;netease:string};coverId:string|null;assets:Asset[];archivedAssets?:Asset[];score:Score;alignment:{offset:number;anchors:{beat:number;seconds:number}[]};archived:boolean;deletedAt?:string;createdAt:string;updatedAt:string};
+export type Provider = {id:string;name:string;baseUrl:string;model:string;apiKey?:string;hasKey?:boolean;clearKey?:boolean;timeoutSeconds:number};
+export type Settings = {providers:Provider[];activeProviderId:string};
+export type JsonValue = null|boolean|number|string|JsonValue[]|{[key:string]:JsonValue};
+export type WorkflowCheck = JsonValue;
+export type WorkflowTraceEntry = JsonValue;
+export type Job = {mode?:'recognition'|'lyrics'|'external';lyricsText?:string;id:string;songId:string;status:'queued'|'running'|'review'|'failed'|'applied';progress:string;error?:string;baseRevision:number;draft?:Score;warnings?:string[];qualityIssues?:{kind:string;message:string}[];sourcePackage?:unknown;sourceMapping?:Record<string,string>;workflow?:{id?:string;version?:string|number;[key:string]:unknown};trace?:WorkflowTraceEntry[];counters?:Record<string,number>;checks?:WorkflowCheck[];partial?:boolean;coverageComplete?:boolean;coverage?:JsonValue;responses?:JsonValue[];pages?:JsonValue[];overlaps?:{start:number;count:number;previousCount?:number;matchKind?:string;reason:string}[];createdAt:string};
+export type ScoreFormat = {format:string;version:number;schema:unknown;template:unknown;prompt:string};
+export type ExternalScorePrompt = {format:string;version:number;prompt:string;manifest:{id:string;name:string;assetId:string}[]};
+export type ScoreHistory = {revision:number;at:string;score:Score};
+export type MetadataPreview = {title?:string;artist?:string;album?:string;description?:string;coverUrl?:string;platform:string;url:string;warning?:string};

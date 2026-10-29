@@ -1,0 +1,25 @@
+{
+  "samples": {
+    "36": "/piano/C2.mp3",
+    "39": "/piano/Ds2.mp3",
+    "42": "/piano/Fs2.mp3",
+    "45": "/piano/A2.mp3",
+    "48": "/piano/C3.mp3",
+    "51": "/piano/Ds3.mp3",
+    "54": "/piano/Fs3.mp3",
+    "57": "/piano/A3.mp3",
+    "60": "/piano/C4.mp3",
+    "63": "/piano/Ds4.mp3",
+    "66": "/piano/Fs4.mp3",
+    "69": "/piano/A4.mp3",
+    "72": "/piano/C5.mp3",
+    "75": "/piano/Ds5.mp3",
+    "78": "/piano/Fs5.mp3",
+    "81": "/piano/A5.mp3",
+    "84": "/piano/C6.mp3"
+  },
+  "name": "Salamander Grand Piano",
+  "license": "CC BY 3.0",
+  "attribution": "Salamander Grand Piano by Alexander Holm; samples hosted by Tone.js",
+  "source": "https://github.com/Tonejs/audio/tree/master/salamander"
+}
